@@ -1,13 +1,9 @@
 {
-  "homepage": "https://shariki569.github.io/portfolio-dev",
-  "name": "shariki-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "deploy": "gh-pages -d build"
