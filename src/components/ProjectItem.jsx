@@ -10,7 +10,7 @@ const ProjectItem = ({img, title, src, description}) => {
         </h3>
         <p className='pb-4 pt-2 text-white text-center'>{description}</p>
         <a href={src} target='_blank' className='flex justify-center align-middle'>
-            <p className='text-center p-3 rounded-lg  bg-white text-gray-700 font-bold cursor cursor-pointer text-lg w-40'>More Info</p>
+            <p className='text-center p-3 rounded-lg  bg-white text-gray-700 font-bold cursor cursor-pointer text-lg w-40'>Open Site</p>
         </a>
       </div>
     </div>
