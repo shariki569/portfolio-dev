@@ -20,7 +20,7 @@ const Projects = () => {
         <ProjectItem img={modelProject} title='Model Site' description='A model blog site using HTML + CSS' src='https://shariki569.github.io/sepalon-blog-project-1/'/>
         <ProjectItem img={movieProject} title='Movie Site' description='A movie site using movie API + React Js and Tailwind' src='https://shariki569.github.io/Movie-App/'/>
         <ProjectItem img={artWebsite} title='Digital Art Portfolio Site' description='An art portfolio site using Carrd website builder' src='https://shariki569.carrd.co/'/>
-        <ProjectItem img={raeleVance} title='RaeleVAnce Site' description='A paid project for VA website using Wordpress and Elementor' src='https://raelevance.online/'/>
+        {/* <ProjectItem img={raeleVance} title='RaeleVAnce Site' description='A paid project for VA website using Wordpress and Elementor' src='https://raelevance.online/'/> */}
         <ProjectItem img={miswebsite} title='MIS Website' description='A capstone for full-stack Management Information System with Chatbot using Node Js, React and MySQL' src='https://aquacaintacapstone.netlify.app/'/>
 
       </div>
