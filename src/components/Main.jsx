@@ -1,60 +1,125 @@
-import React from "react";
-import { TypeAnimation } from "react-type-animation";
+import { TypeAnimation } from 'react-type-animation';
+import { motion } from 'framer-motion';
 import {
   FaTwitter,
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-} from "react-icons/fa";
+  FaGithub,
+} from 'react-icons/fa';
+import { HiArrowDown, HiDownload } from 'react-icons/hi';
+import { personal } from '../data/resume';
+import { downloadResume } from '../utils/generateResumePdf';
+import heroBg from '../assets/Main-bg.webp';
 
 const Main = () => {
   return (
-    <div id="main">
-      <picture>
-        <source
-          media="min-width: 768px"
-          srcSet="https://res.cloudinary.com/duxm7pc8y/image/upload/v1687575420/SepalonAssets/Main-bg-desktop_itkt5a.jpg"
-        />
+    <section id="main" className="relative min-h-screen overflow-hidden bg-hero-mesh">
+      <div className="absolute inset-0">
         <img
-          className="w-full h-screen object-cover object-bottom"
-          src="https://res.cloudinary.com/aquacainta/image/upload/v1687575420/SepalonAssets/Main-bg-desktop_itkt5a.jpg"
+          src={heroBg}
+          alt=""
+          className="h-full w-full object-cover object-center opacity-35"
         />
-      </picture>
-      <div className="w-full h-screen absolute top-0 left-0 bg-white/50">
-        <div className="max-w-[700px] m-auto h-full w-full flex flex-col justify-center lg:items-start items-center">
-          <h1 className="sm:text-5xl text-4xl font-bold text-gray-800">
-            I'm Clint Sepalon
-          </h1>
-          <h2 className="flex sm:text-3xl text-2xl pt-4 text-gray-800">
-            I'm a
-            <TypeAnimation
-              sequence={[
-                // Same substring at the start will only be typed out once, initially
-                "Web-Developer",
-                2000, // wait 1s before replacing "Mice" with "Hamsters"
-                "Coder",
-                2000,
-                "Digital Illustrator",
-                2000,
-                "Graphic Designer",
-                2000,
-              ]}
-              wrapper="span"
-              speed={50}
-              style={{ fontSize: "1em", paddingLeft: "5px" }}
-              repeat={Infinity}
-            />
-          </h2>
-          <div className="flex space-around gap-4 pt-6 max-w-[200px] w-full">
-            <a href="https://twitter.com/CATS2922"><FaTwitter className="cursor-pointer" size={20} /></a>
-            <a href="https://www.facebook.com/clint.sepalon/" target="_blank" rel="noreferrer"><FaFacebookF className="cursor-pointer" size={20} /></a>
-            <a href="https://www.linkedin.com/in/clint-sepalon-189768247/" target="_blank" rel="noreferrer"><FaLinkedinIn className="cursor-pointer" size={20} /></a>
-            <a href="https://www.instagram.com/clintsepalon/" target="_blank" rel="noreferrer"><FaInstagram className="cursor-pointer" size={20} /></a>
-            
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-mist-50/90 via-mist-50/75 to-ink-900/25" />
+        <div className="absolute -left-24 top-24 h-72 w-72 animate-float rounded-full bg-accent-soft/25 blur-3xl" />
+        <div className="absolute bottom-10 right-0 h-80 w-80 animate-float rounded-full bg-ink-700/15 blur-3xl [animation-delay:1.5s]" />
       </div>
-    </div>
+
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-6 pb-24 pt-28 md:px-10 lg:pl-24">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.28em] text-accent"
+        >
+          Portfolio · Front-End Craft
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.08 }}
+          className="section-title max-w-4xl text-5xl font-extrabold leading-[1.05] text-ink-900 sm:text-6xl lg:text-7xl"
+        >
+          {personal.displayName}
+        </motion.h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.16 }}
+          className="mt-5 flex flex-wrap items-center gap-x-2 text-xl text-ink-700 sm:text-2xl"
+        >
+          <span>I design & ship as a</span>
+          <TypeAnimation
+            sequence={[
+              'Front-End Developer',
+              2200,
+              'WordPress Specialist',
+              2200,
+              'UI Implementer',
+              2200,
+              'Creative Coder',
+              2200,
+            ]}
+            wrapper="span"
+            speed={48}
+            className="font-display font-semibold text-accent"
+            repeat={Infinity}
+          />
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.24 }}
+          className="mt-6 max-w-xl text-base leading-relaxed text-ink-700/85 sm:text-lg"
+        >
+          Building responsive, polished web experiences with WordPress and modern JavaScript —
+          clean interfaces, careful detail, and production-ready delivery.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.75, delay: 0.32 }}
+          className="mt-9 flex flex-wrap items-center gap-3"
+        >
+          <button type="button" onClick={downloadResume} className="btn-primary">
+            <HiDownload size={18} />
+            Download Resume
+          </button>
+          <a href="#work" className="btn-ghost">
+            View Experience
+            <HiArrowDown size={16} />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
+          className="mt-10 flex items-center gap-4 text-ink-800"
+        >
+          <a href="https://twitter.com/CATS2922" aria-label="Twitter" className="transition hover:text-accent">
+            <FaTwitter size={18} />
+          </a>
+          <a href="https://www.facebook.com/clint.sepalon/" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition hover:text-accent">
+            <FaFacebookF size={18} />
+          </a>
+          <a href={personal.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition hover:text-accent">
+            <FaLinkedinIn size={18} />
+          </a>
+          <a href="https://www.instagram.com/clintsepalon/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition hover:text-accent">
+            <FaInstagram size={18} />
+          </a>
+          <a href={personal.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="transition hover:text-accent">
+            <FaGithub size={18} />
+          </a>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
